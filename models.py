@@ -100,7 +100,7 @@ class VariationalAutoencoderConv(nn.Module):
     def decoding(self,z):
         batch_size = z.shape[0]
         _z = self.first_decoder_dense(z)
-        _z = torch.reshape(_z,(batch_size,self.hidden_layer_size[-1],-1))
+        _z = torch.reshape(_z,(batch_size,self.hidden_dim,-1))
         _z = self.decoder(_z)
         _z = self.last_decoder_dense(_z)
         _z = torch.reshape(_z,(batch_size,self.feat_dim,self.seq_len))
