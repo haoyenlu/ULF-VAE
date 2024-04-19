@@ -18,7 +18,7 @@ class VariationalAutoencoderConv(nn.Module):
         self.dense_var = nn.Linear(self.seq_len // 64 * self.hidden_dim,self.latent_dim)
 
         self.first_decoder_dense = nn.Sequential(
-            nn.Linear(self.latent_dim,self.seq_len // 64),
+            nn.Linear(self.latent_dim,self.seq_len // 64 * self.hidden_dim),
             nn.ReLU()
         )
 
