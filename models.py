@@ -108,7 +108,7 @@ class VariationalAutoencoderConv(nn.Module):
 
     
     def get_prior_samples(self,num_samples):
-        Z = torch.randn(num_samples,self.latent_dim)
+        Z = torch.randn(num_samples,self.latent_dim).to(self.device)
         _z = self.decoding(Z)
         return _z
 
